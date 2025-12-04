@@ -25,14 +25,22 @@ Arquitectura: Nginx (como API gateway), Backend Node.js, Redis cache, MongoDB pa
    ```bash
    git clone https://github.com/githanshync/docker-microservicios-clase4.git
    cd docker-microservicios-clase4
+   
 2. docker compose up -d
+
+   ![up](screenshots/docker-compose-up-d.png)
 3. Abrir http://localhost:8080
+
+   ![front](screenshots/front.png)
 4. Health: /gateway/health, /api/health
+
 
 ## Endpoints
 
 - GET /api/posts
+
 - GET /api/posts/:id
+
 - POST /api/posts
 
 Respuestas incluyen `source: "cache"` o `source: "database"` para demostrar HIT/MISS.
@@ -40,8 +48,18 @@ Respuestas incluyen `source: "cache"` o `source: "database"` para demostrar HIT/
 ## Pruebas
 
 - Primer GET /api/posts: source=database (MISS)
+
+  ![miss](screenshots/cache-miss.png)
 - Segundo GET: source=cache (HIT)
+
+  ![miss](screenshots/cache-hit.png)
 - POST /api/posts: invalida cache de listado
+
+  ![miss](screenshots/se-invalido.png)
 - Persistencia: reiniciar contenedores y verificar datos
+
+ ![miss](screenshots/persistencia-datos.png)
 - Routing: /gateway/health y /api/health retornan ok
+
+  ![miss](screenshots/routing-gateway.png)  
 
